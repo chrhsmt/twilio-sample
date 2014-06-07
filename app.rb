@@ -6,10 +6,10 @@ require "sinatra/json"
 require_relative "twilio_action"
 require_relative 'models/init'
 
-enable :sessions
-
 class App < Sinatra::Base
     register Sinatra::Reloader
+
+    enable :sessions
  
     get "/stylesheet/main.css" do
         scss :"scss/main"
