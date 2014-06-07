@@ -6,7 +6,9 @@ jQuery ->
             url: "/call"
             type: "POST"
             dataType: "json"
-            data: $("input#tel").val()
+            data: {
+                tel: $("input#tel").val()
+            }
             success: (json) ->
                 console.log json
             complete: (xhr, status) ->

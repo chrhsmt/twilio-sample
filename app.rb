@@ -24,8 +24,7 @@ class App < Sinatra::Base
     end
 
     post "/call" do 
-        # sleep 3
-        TwilioAction.new.call
+        TwilioAction.new.call params["tel"]
         json result: "yes"
     end
 
