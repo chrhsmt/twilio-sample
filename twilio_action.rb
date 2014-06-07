@@ -5,6 +5,7 @@ class TwilioAction
 
     def call(tel)
 
+        tel.delete!('-')
         tel.slice!(0) if (tel.length == 11 || tel.length == 10) && tel[0] == "0"
 
         account_sid = ENV['SID'] 
