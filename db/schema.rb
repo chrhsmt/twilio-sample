@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20140607130706) do
   create_table "users", force: true do |t|
     t.string   "ip"
     t.string   "tel"
+    t.string   "referer"
+    t.string   "user_agent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

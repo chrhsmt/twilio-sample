@@ -6,6 +6,8 @@ require "sinatra/json"
 require_relative "twilio_action"
 require_relative 'models/init'
 
+enable :sessions
+
 class App < Sinatra::Base
     register Sinatra::Reloader
  
@@ -18,14 +20,14 @@ class App < Sinatra::Base
     end
 
     get '/' do
-        @message = "hi, how are you ?"
-        @users = User.all
+        session[:referer] = request.referer
         erb :index, locals: { test: "yes" }
     end
 
     post "/call" do 
         begin
             TwilioAction.new.call params["tel"]
+            User.new({tel: params["tel"], ip: request.ip, referer: session[:referer], user_agent: request.user_agent}).save
             json result: true
         rescue => e 
             p e

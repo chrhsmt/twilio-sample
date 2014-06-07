@@ -15,8 +15,11 @@ jQuery ->
                     tel: $("input#tel").val()
                 }
                 success: (json) ->
+                    msg = 'call中です。少々お待ちくださいませ。<br />' + 
+                        "<small>※本アプリケーションは1コール毎に通話料が掛かっております...。<br />" + 
+                        "できましたら広告主様へご助力いただけますと助かります。</small>"
                     $(".alert").addClass('in alert-success')
-                    $(".alert").text('call中です。少々お待ちくださいませ。')
+                    $(".alert").html(msg)
                 error: (json) ->
                     $(".alert").addClass('in alert-danger')
                     $(".alert").text('エラーが発生しました')
