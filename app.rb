@@ -24,8 +24,14 @@ class App < Sinatra::Base
     end
 
     post "/call" do 
-        TwilioAction.new.call params["tel"]
-        json result: "yes"
+        begin
+            TwilioAction.new.call params["tel"]
+            json result: true
+        rescue => e 
+            p e
+            status 500
+            json result: false
+        end
     end
 
     get "/twilio.xml" do 
