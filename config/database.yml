@@ -1,0 +1,13 @@
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 10000
+
+production:
+  adapter: postgresql
+  host: [herokuの情報]
+  port: [herokuの情報]
+  database: [herokuの情報]
+  username: [herokuの情報]
+  password: [herokuの情報]
