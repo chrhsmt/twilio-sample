@@ -3,7 +3,7 @@ twilio-sample
 
 twilio sample
 
-# install and run
+## install and run
 
 ```
 bundle install --path vendor/bundle
