@@ -29,6 +29,7 @@ class App < Sinatra::Base
     end
 
     get "/twilio.xml" do 
-        erb :twilio_response
+        content_type "application/xml"
+        erb :twilio_response, layout: false
     end
 end
