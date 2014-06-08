@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608081218) do
+ActiveRecord::Schema.define(version: 20140608163944) do
 
   create_table "calls", force: true do |t|
     t.string   "ip"
     t.string   "tel"
-    t.string   "referer"
+    t.text     "referer",    limit: 255
     t.string   "user_agent"
     t.datetime "created_at"
     t.datetime "updated_at"
