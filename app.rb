@@ -2,6 +2,7 @@ require 'rubygems' unless defined? ::Gem
 require 'sinatra'
 require "sinatra/reloader" if development?
 require "sinatra/json"
+require 'pry' if development?
 
 require_relative "twilio_action"
 require_relative 'models/init'
@@ -39,5 +40,10 @@ class App < Sinatra::Base
     get "/twilio.xml" do 
         content_type "application/xml"
         erb :twilio_response, layout: false
+    end
+
+    get "/callbak" do 
+        p request
+        p params
     end
 end
