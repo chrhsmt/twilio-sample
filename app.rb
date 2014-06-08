@@ -11,6 +11,8 @@ class App < Sinatra::Base
     register Sinatra::Reloader
 
     enable :sessions
+
+    use ActiveRecord::ConnectionAdapters::ConnectionManagement
  
     get "/stylesheet/main.css" do
         scss :"scss/main"
