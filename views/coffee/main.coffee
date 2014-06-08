@@ -16,7 +16,7 @@ jQuery ->
                 }
                 success: (json) ->
                     msg = 'call中です。少々お待ちくださいませ。<br />' + 
-                        "<small>※本アプリケーションは1コール毎に通話料が掛かっております...。<br />" + 
+                        "<small text-left>※本アプリケーションは1コール毎に通話料が掛かっております...。<br />" + 
                         "できましたら広告主様へご助力いただけますと助かります。</small>"
                     $(".alert").addClass('in alert-success')
                     $(".alert").html(msg)
