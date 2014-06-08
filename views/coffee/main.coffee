@@ -5,6 +5,7 @@ jQuery ->
             $(".alert").addClass('in alert-danger')
             $(".alert").text('電話番号を入力してください。')
         else
+            ga('send', 'event', 'twilio', 'call', 'tel', $("input#tel").val());
             $(".alert").removeClass('in alert-danger alert-success')
             $(button_selector).button 'loading'
             $.ajax {
