@@ -13,7 +13,7 @@ class TwilioAction
          
         # set up a client to talk to the Twilio REST API 
         @client = Twilio::REST::Client.new account_sid, auth_token 
-        @call = @client.account.calls.create({
+        @client.account.calls.create({
             :to => "+81#{tel}", 
             :from => ENV['FROM'],
             :url => ENV['RESPONSE_XML_URL'],

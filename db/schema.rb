@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607130706) do
+ActiveRecord::Schema.define(version: 20140608081218) do
 
-  create_table "users", force: true do |t|
+  create_table "calls", force: true do |t|
     t.string   "ip"
     t.string   "tel"
     t.string   "referer"
     t.string   "user_agent"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sid"
+    t.string   "status"
   end
+
+  add_index "calls", ["sid"], name: "index_calls_on_sid"
 
 end

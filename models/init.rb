@@ -1,5 +1,5 @@
 require "active_record"
-require_relative 'user'
+require_relative 'call'
 
 if development?
     ActiveRecord::Base.configurations = YAML.load_file('config/database.yml')

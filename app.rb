@@ -27,8 +27,15 @@ class App < Sinatra::Base
 
     post "/call" do 
         begin
-            TwilioAction.new.call params["tel"]
-            User.new({tel: params["tel"], ip: request.ip, referer: session[:referer], user_agent: request.user_agent}).save
+            call = TwilioAction.new.call params["tel"]
+            Call.new({
+                tel: params["tel"],
+                ip: request.ip,
+                referer: session[:referer],
+                user_agent: request.user_agent,
+                status: call.status,
+                sid: call.sid
+                }).save
             json result: true
         rescue => e 
             p e
@@ -43,7 +50,11 @@ class App < Sinatra::Base
     end
 
     get "/callbak" do 
-        p request
-        p params
+        call = Call.where(sid: params["CallSid"]).first
+        if call
+            call.update(status: params["CallStatus"])
+        end
+        status 200
+        "OK"
     end
 end
