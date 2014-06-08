@@ -36,4 +36,4 @@ vendor/bundle
 
 .sass-cache
 
-*.sqlite3
+/db/*.sqlite3
