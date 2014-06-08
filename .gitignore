@@ -35,3 +35,5 @@ vendor/bundle
 .rvmrc
 
 .sass-cache
+
+*.sqlite3
