@@ -20,7 +20,7 @@ class TwilioAction
             :method => 'GET',  
             :fallback_method => 'GET',  
             :status_callback_method => 'GET', 
-            :status_callback => ENV['CALLBACK_URL']   
+            :status_callback => ENV['CALLBACK_URL'],
             :record => 'false'
         })
     end
